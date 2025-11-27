@@ -191,7 +191,7 @@ const Contact: React.FC = () => {
                     CONCEPT_GENERATOR
                   </h3>
                   <p className="text-zinc-500 text-sm font-mono">
-                    &gt; Input raw parameters.<br/>&gt; System will output a creative brief.
+                    {'>'} Input raw parameters.<br/>{'>'} System will output a creative brief.
                   </p>
                 </div>
 
