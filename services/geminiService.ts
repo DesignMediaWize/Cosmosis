@@ -10,11 +10,11 @@ import { GoogleGenAI } from "@google/genai";
 export const generateCreativeConcept = async (userIdea: string): Promise<string> => {
   try {
     // Initialize the client ONLY when the function is called, not on app load.
-    // This prevents "process is not defined" crashes in some build environments.
-    const apiKey = process.env.API_KEY;
+    // We also safeguard against accessing process in environments where it is undefined.
+    const apiKey = (typeof process !== "undefined" && process.env) ? process.env.API_KEY : undefined;
     
     if (!apiKey) {
-      console.error("API_KEY is missing in environment variables");
+      console.error("API_KEY is missing or process is undefined.");
       return "System Error: Neural Link Disconnected (Missing API Key).";
     }
 
