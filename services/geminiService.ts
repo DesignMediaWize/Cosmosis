@@ -1,9 +1,5 @@
 import { GoogleGenAI } from "@google/genai";
 
-// Initialize the Gemini AI client
-// Note: process.env.API_KEY is assumed to be available in the environment.
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 /**
  * Generates a creative concept based on a user's raw idea.
  * Uses the high-speed gemini-2.5-flash model for quick interactions.
@@ -13,6 +9,17 @@ const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
  */
 export const generateCreativeConcept = async (userIdea: string): Promise<string> => {
   try {
+    // Initialize the client ONLY when the function is called, not on app load.
+    // This prevents "process is not defined" crashes in some build environments.
+    const apiKey = process.env.API_KEY;
+    
+    if (!apiKey) {
+      console.error("API_KEY is missing in environment variables");
+      return "System Error: Neural Link Disconnected (Missing API Key).";
+    }
+
+    const ai = new GoogleGenAI({ apiKey });
+
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash',
       contents: `You are a world-class Creative Director at a futuristic design agency called "Cosmosis". 
