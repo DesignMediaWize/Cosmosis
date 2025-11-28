@@ -9,16 +9,9 @@ import { GoogleGenAI } from "@google/genai";
  */
 export const generateCreativeConcept = async (userIdea: string): Promise<string> => {
   try {
-    // Initialize the client ONLY when the function is called, not on app load.
-    // We also safeguard against accessing process in environments where it is undefined.
-    const apiKey = (typeof process !== "undefined" && process.env) ? process.env.API_KEY : undefined;
-    
-    if (!apiKey) {
-      console.error("API_KEY is missing or process is undefined.");
-      return "System Error: Neural Link Disconnected (Missing API Key).";
-    }
-
-    const ai = new GoogleGenAI({ apiKey });
+    // Initialize the client using process.env.API_KEY directly.
+    // The API key is injected by Vite at build time via the define config.
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash',
