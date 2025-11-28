@@ -18,7 +18,17 @@ const Contact: React.FC = () => {
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Transmission received. Stand by for response.");
+    
+    // Construct the email body with a thematic format
+    const subject = `Mission Brief from ${formData.name}`;
+    const body = `IDENTIFIER: ${formData.name}
+FREQUENCY (EMAIL): ${formData.email}
+
+MISSION BRIEF:
+${formData.message}`;
+
+    // Open default mail client
+    window.location.href = `mailto:inquiries@cosmosis.se?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   const handleAiBrainstorm = async () => {
