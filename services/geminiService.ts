@@ -1,5 +1,12 @@
 import { GoogleGenAI } from "@google/genai";
 
+// Declare process to satisfy TypeScript compiler (injected by Vite)
+declare var process: {
+  env: {
+    API_KEY?: string;
+  };
+};
+
 /**
  * Generates a creative concept based on a user's raw idea.
  * Uses the high-speed gemini-2.5-flash model for quick interactions.
@@ -9,9 +16,16 @@ import { GoogleGenAI } from "@google/genai";
  */
 export const generateCreativeConcept = async (userIdea: string): Promise<string> => {
   try {
+    // Check if key exists before initializing
+    const apiKey = process.env.API_KEY;
+    
+    if (!apiKey || apiKey.length === 0) {
+      console.error("API Key is missing. Please set API_KEY in your environment variables.");
+      return "System Error: Neural Link Disconnected (Missing API Key).";
+    }
+
     // Initialize the client using process.env.API_KEY directly.
-    // The API key is injected by Vite at build time via the define config.
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    const ai = new GoogleGenAI({ apiKey: apiKey });
 
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash',
