@@ -1,10 +1,11 @@
+
 import React from 'react';
 import { TEAM } from '../constants';
 import { Target, Users, Zap } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
-    <div className="w-full pt-32 pb-20">
+    <div className="w-full pt-48 pb-20">
       
       {/* Intro */}
       <section className="pb-24 border-b border-white/10">
@@ -50,32 +51,39 @@ const About: React.FC = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-24 bg-neon">
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="font-display font-black text-6xl text-black mb-16 uppercase tracking-tighter">The Squad</h2>
+          <h2 className="font-display font-black text-6xl text-white mb-16 uppercase tracking-tighter">The Squad</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border-t border-l border-black">
+          {/* Changed grid layout to use dark borders and gap-px for clean separation */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-zinc-800 border border-zinc-800">
             {TEAM.map((member, index) => (
-              <div key={index} className="group border-r border-b border-black p-8 relative overflow-hidden bg-neon hover:bg-neon-hover transition-colors duration-500">
-                <div className="relative w-full aspect-square mb-6 overflow-hidden">
-                  {/* Applied mix-blend-multiply to hide white background, and contrast filter to clean up JPEG noise */}
+              <div key={index} className="group relative bg-cosmic-950 p-8 hover:bg-zinc-900 transition-colors duration-500">
+                
+                {/* Image Container: Rounded full creates the circle, hiding the square corners */}
+                <div className="relative w-full aspect-square mb-6 overflow-hidden bg-neon rounded-full">
+                  {/* Applied mix-blend-multiply to hide white background, revealing the gold container underneath */}
+                  {/* Added group-hover:grayscale-0 to bring back color on hover */}
+                  {/* Removed scale effect */}
                   <img 
                     src={member.image} 
                     alt={member.name} 
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 mix-blend-multiply contrast-125 brightness-110 transition-all duration-500" 
+                    className="w-full h-full object-cover grayscale mix-blend-multiply contrast-125 brightness-110 transition-all duration-500 group-hover:grayscale-0" 
                   />
+                  {/* Optional overlay for extra style */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
-                {/* Reduced font size to text-xl/2xl to prevent wrapping for long names */}
-                <h3 className="text-xl lg:text-2xl tracking-tight font-display font-bold text-black mb-1">{member.name}</h3>
-                <span className="font-mono text-xs font-bold uppercase tracking-widest block mb-4 text-black/60 group-hover:text-black transition-colors">{member.role}</span>
-                <p className="text-black/80 text-sm leading-relaxed">{member.bio}</p>
+
+                <h3 className="text-xl lg:text-2xl tracking-tight font-display font-bold text-white mb-1">{member.name}</h3>
+                <span className="font-mono text-xs font-bold uppercase tracking-widest block mb-4 text-neon">{member.role}</span>
+                <p className="text-zinc-400 text-sm leading-relaxed">{member.bio}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-    </div>
+      </div>
   );
 };
 

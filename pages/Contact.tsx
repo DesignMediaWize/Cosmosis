@@ -33,7 +33,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="w-full pt-32 pb-20 min-h-screen">
+    <div className="w-full pt-48 pb-20 min-h-screen">
       <div className="max-w-7xl mx-auto px-6">
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24">

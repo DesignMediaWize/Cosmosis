@@ -14,7 +14,7 @@ const ProjectDetail: React.FC = () => {
 
   if (!project) {
     return (
-      <div className="min-h-screen pt-32 px-6 flex flex-col items-center justify-center">
+      <div className="min-h-screen pt-48 px-6 flex flex-col items-center justify-center">
         <h1 className="text-4xl text-white font-display mb-4">Project Not Found</h1>
         <p className="text-zinc-400 mb-8">This file has been redacted or does not exist.</p>
         <Link to="/">
@@ -25,7 +25,7 @@ const ProjectDetail: React.FC = () => {
   }
 
   return (
-    <div className="w-full pt-32 pb-20 min-h-screen">
+    <div className="w-full pt-48 pb-20 min-h-screen">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Breadcrumbs */}

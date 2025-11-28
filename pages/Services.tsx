@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Services: React.FC = () => {
   return (
-    <div className="w-full pt-32 pb-20">
+    <div className="w-full pt-48 pb-20">
       
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-20 border-b border-white/20 pb-10">
