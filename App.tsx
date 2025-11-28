@@ -17,6 +17,11 @@ function App() {
       <ScrollToTop />
       <div className="flex flex-col min-h-screen bg-cosmic-950 text-white font-sans selection:bg-neon selection:text-black">
         <div className="bg-noise"></div>
+        
+        {/* Depth of Field Overlay: Blurs content scrolling near/behind navbar */}
+        {/* Adjusted height to h-64, blur to 20px, and mask to 40% to ensure full blur behind navbar */}
+        <div className="fixed top-0 left-0 right-0 h-64 z-[90] pointer-events-none backdrop-blur-[20px] [mask-image:linear-gradient(to_bottom,black_40%,transparent)]"></div>
+        
         <Visor />
         <Navbar />
         <main className="flex-grow z-10">

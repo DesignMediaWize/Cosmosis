@@ -89,8 +89,8 @@ const Visor: React.FC = () => {
 
       {/* 5. HUD Elements - Minimal & Non-intrusive (Hidden on mobile) */}
       <div className="absolute inset-0 p-8 hidden md:flex flex-col justify-between pointer-events-none">
-        {/* Top Left */}
-        <div className="flex flex-col items-start opacity-40">
+        {/* Top Left - Added margin-top to clear navbar logo */}
+        <div className="flex flex-col items-start opacity-40 mt-24">
            <div className="flex gap-1 mb-1">
              <div className="w-1 h-1 bg-neon rounded-full"></div>
              <div className="w-1 h-1 bg-neon rounded-full opacity-50"></div>
