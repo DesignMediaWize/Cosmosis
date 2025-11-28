@@ -31,9 +31,8 @@ const Footer: React.FC = () => {
             <div>
               <h3 className="font-mono text-neon text-xs font-bold uppercase tracking-widest mb-6">Social</h3>
               <ul className="space-y-4 text-zinc-400 font-display font-medium">
-                <li><a href="#" className="hover:text-white transition-colors">Instagram</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Twitter / X</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">LinkedIn</a></li>
+                <li><a href="https://www.instagram.com/cosmosis.se/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Instagram</a></li>
+                <li><a href="https://www.linkedin.com/company/cosmosisgroup/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a></li>
               </ul>
             </div>
           </div>

@@ -132,98 +132,98 @@ export const TEAM: TeamMember[] = [
 
 export const PROJECTS: Project[] = [
   { 
-    id: "neon-horizon", 
-    title: "Neon Horizon", 
-    category: "Branding", 
-    imageUrl: "https://picsum.photos/seed/neon/800/600",
-    description: "Rebranding a synth-wave music festival for the 2025 season.",
+    id: "breathe", 
+    title: "Breathe IT", 
+    category: "Custom IT Solutions", 
+    imageUrl: "https://framerusercontent.com/images/ipeDv4UoBeUDIIBrnWkuhVMqN4.webp", 
+    description: "Integrating advanced technology with user-friendly design to enhance business efficiency.",
     details: {
-      client: "SynthWave Global",
+      client: "Breathe IT",
       year: "2024",
-      role: "Visual Identity & Art Direction",
-      challenge: "The festival's visual identity had become stagnant, blending in with competitors. They needed a radiant, high-energy system that would dominate social feeds and translate physically to massive stage environments.",
-      solution: "We developed a dynamic 'Living Light' system. Using generative code, we created a logo that pulsates to the BPM of the headlining track. The color palette was shifted from standard purples to aggressive acid greens and deep blacks.",
+      role: "Branding, Web & CRM",
+      challenge: "Breathe IT’s existing website lacked clarity and functionality, making it difficult for users to understand the company’s full capabilities. A more structured and engaging online presence was needed to showcase their expertise in custom IT systems effectively.",
+      solution: "We redesigned the website with a fresh, modern look, drastically improving navigation and segmentation. Key to the solution was the development of a dedicated client portal with a custom CRM system for seamless account access. Visually, we created a concept fusing technology with nature—balancing blues and violets with grounding organic greens—to align the technological and human-centered aspects of the brand.",
       results: [
-        "300% increase in social media engagement pre-launch.",
-        "Merchandise sold out within 48 hours.",
-        "Featured in 'Best Branding of 2024' by DesignWeek."
+        "Enhanced clarity of service offerings.",
+        "Successful deployment of custom CRM portal.",
+        "Improved user engagement via 'Tech + Nature' design."
       ],
       gallery: [
-        "https://picsum.photos/seed/neon1/800/600",
-        "https://picsum.photos/seed/neon2/800/600",
-        "https://picsum.photos/seed/neon3/800/600"
+        "https://framerusercontent.com/images/p36p9VvDRIKXpeDh6BIPdj1SuhU.webp", 
+        "https://framerusercontent.com/images/kGkwuvQElM0W3pwyo8yzR4A7YOw.webp", 
+        "https://framerusercontent.com/images/ZCGsaYimnKL6XUK4ZfJ1t2hLino.webp"
       ]
     }
   },
   { 
-    id: "void-walker", 
-    title: "Void Walker", 
-    category: "Web Design", 
-    imageUrl: "https://picsum.photos/seed/void/800/600",
-    description: "An immersive 3D commerce experience for high-end streetwear.",
+    id: "cepheo", 
+    title: "Cepheo", 
+    category: "Business Technology", 
+    imageUrl: "https://framerusercontent.com/images/dpozrVzvaD4r2jJnCV1qtcO3vGM.webp",
+    description: "Optimizing business operations with Microsoft Dynamics and advanced digital tools.",
     details: {
-      client: "Void Walker Apparel",
-      year: "2023",
-      role: "UI/UX & WebGL Development",
-      challenge: "Void Walker wanted to sell digital-only fashion items (NFTs) alongside physical garments. The challenge was to create a web experience that felt like a futuristic dressing room.",
-      solution: "We built a WebGL-powered environment where users can explore the garments in zero gravity. The interface mimics a spaceship HUD, providing technical specs of the fabrics as users hover over items.",
-      results: [
-        "Average session duration increased by 4 minutes.",
-        "Conversion rate for digital items doubled.",
-        "Winner of Awwwards Site of the Day."
-      ],
-      gallery: [
-        "https://picsum.photos/seed/void1/800/600",
-        "https://picsum.photos/seed/void2/800/600",
-        "https://picsum.photos/seed/void3/800/600"
-      ]
-    }
-  },
-  { 
-    id: "star-dust", 
-    title: "Star Dust", 
-    category: "Motion", 
-    imageUrl: "https://picsum.photos/seed/star/800/600",
-    description: "A kinetic typography campaign for a space exploration startup.",
-    details: {
-      client: "Astra Nova",
+      client: "Cepheo",
       year: "2024",
-      role: "Motion Design & Video Production",
-      challenge: "Space exploration can feel cold and scientific. Astra Nova needed to convey the emotion and wonder of human expansion into the stars to attract private investment.",
-      solution: "We created 'Star Dust', a 60-second manifesto film driven by kinetic typography. Words disintegrate into stardust and reform into new constellations, symbolizing the recycling of matter and ideas.",
+      role: "Portal Redesign & UX",
+      challenge: "Cepheo’s customer portal was functional but lacked a modern, intuitive interface. Users needed improved navigation, better data accessibility, and additional features to enhance their experience. A redesign was necessary to align with current usability standards while maintaining brand consistency.",
+      solution: "We modernized the portal with a refined look that preserved Cepheo’s brand identity. We introduced Report Generation for deeper insights, automated Task Scheduling for efficiency, and Advanced Filtering for quicker data access. The interface was streamlined to ensure a seamless, user-friendly browsing experience for enterprise clients.",
       results: [
-        "Video garnered 2M+ views on launch week.",
-        "Helped secure Series B funding round.",
-        "Used as the opening visual for their global summit."
+        "Streamlined user navigation flows.",
+        "Increased efficiency via automated task scheduling.",
+        "Enhanced data accessibility for end-users."
       ],
       gallery: [
-        "https://picsum.photos/seed/star1/800/600",
-        "https://picsum.photos/seed/star2/800/600",
-        "https://picsum.photos/seed/star3/800/600"
+        "https://framerusercontent.com/images/XgdbF0XMjSu41cccDi2CUVBmSY.webp",
+        "https://framerusercontent.com/images/p8utfsptHN53MpeKwTkyByNELXc.webp",
+        "https://framerusercontent.com/images/i3rzRUjQLTtho7by4gfMx0edIg.webp"
       ]
     }
   },
   { 
-    id: "cyber-core", 
-    title: "Cyber Core", 
-    category: "Development", 
-    imageUrl: "https://picsum.photos/seed/cyber/800/600",
-    description: "Full-stack platform for a decentralized gaming network.",
+    id: "business-insights", 
+    title: "Business Insights", 
+    category: "CRM Integration & UI", 
+    imageUrl: "https://framerusercontent.com/images/i1LsuLMArWeb9ebIKmHCeusuDo.webp",
+    description: "Integrating Dynamics 365 with Proff for critical company insights.",
     details: {
-      client: "Nexus Gaming",
-      year: "2023",
-      role: "Full-Stack Development",
-      challenge: "Nexus needed a community platform that could handle real-time matchmaking and cryptocurrency transactions without lag, all wrapped in a 'hacker terminal' aesthetic.",
-      solution: "We utilized a MERN stack with WebSocket integration for real-time latency. The frontend was styled with a custom retro-terminal library we built, featuring CRT scanlines and phosphor glow effects.",
+      client: "Breathe IT",
+      year: "2024",
+      role: "UI/UX & Data Design",
+      challenge: "The existing interface of the Breathe Business Insights module lacked a structured and visually appealing layout, making data presentation less intuitive. A refreshed design was needed to improve readability and create a more engaging user experience for CRM users who need instant access to financial performance and key metrics.",
+      solution: "We executed a comprehensive UI redesign using a modern card-based layout to enhance usability. By organizing complex information into structured cards, we improved the visual hierarchy, allowing users to scan for critical company structures and financial data. We optimized typography and spacing to make data-heavy content accessible while ensuring the design language aligned perfectly with the broader brand ecosystem.",
       results: [
-        "Platform supports 50k concurrent users.",
-        "Zero downtime during launch event.",
-        "Community grew by 40% in first month."
+        "Enhanced visual hierarchy via card-based layout.",
+        "Improved data readability and user accessibility.",
+        "Seamless integration with Dynamics 365 workflow."
       ],
       gallery: [
-        "https://picsum.photos/seed/cyber1/800/600",
-        "https://picsum.photos/seed/cyber2/800/600",
-        "https://picsum.photos/seed/cyber3/800/600"
+        "https://framerusercontent.com/images/ESYDvnmfY55TbNaL3UOkk5eBRc.png",
+        "https://framerusercontent.com/images/b8k8XUVGIMOTMSh3olYYLo07otw.png",
+        "https://framerusercontent.com/images/iQ3ljixVblAeEzMi0RdMZLmyAsg.webp"
+      ]
+    }
+  },
+  { 
+    id: "nordic-dynamics", 
+    title: "Nordic Dynamics", 
+    category: "IT & Cloud Solutions", 
+    imageUrl: "https://framerusercontent.com/images/XmN1lYP3PhmjHSX3vc9lEOoqSe4.webp",
+    description: "Modernizing the infrastructure. A digital transformation for a tech giant.",
+    details: {
+      client: "Nordic Dynamics",
+      year: "2024",
+      role: "Rebranding & Web Design",
+      challenge: "Nordic Dynamics is a leader in IT infrastructure and cloud solutions, but their brand image was stuck in the server rooms of the past. They needed a visual identity that reflected their transition into modern, agile cloud computing and AI-driven services.",
+      solution: "We executed a complete digital transformation. We discarded the legacy corporate blue for a sharp, monochrome palette accented with dynamic motion graphics that represent data flow. The new website is built on a headless architecture, matching the speed and reliability of the services they provide. We turned a traditional IT firm into a forward-thinking tech powerhouse.",
+      results: [
+        "Inbound leads increased by 50% in the first month.",
+        "Brand perception shifted from 'Legacy' to 'Innovator'.",
+        "Winner of the Nordic Digital Design Award."
+      ],
+      gallery: [
+        "https://framerusercontent.com/images/zhLfgKI0sm8fc5G57BFGGx7dSTU.webp",
+        "https://framerusercontent.com/images/MxKGyrOqHGyczXOpHFYYGR0B4vM.webp",
+        "https://framerusercontent.com/images/GhX3ABoZ6PbD4dNVKtyRZJ39fs.webp?scale-down-to=4096"
       ]
     }
   },

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { TEAM } from '../constants';
 import { Target, Users, Zap } from 'lucide-react';
