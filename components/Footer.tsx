@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
             <Logo className="h-6 md:h-10 mb-6 block" />
             <p className="text-zinc-500 text-sm leading-relaxed">
               A design agency for the bold. <br/>
-              Distorting reality since mission inception.
+              Distorting digital reality since mission inception.
             </p>
           </div>
 
