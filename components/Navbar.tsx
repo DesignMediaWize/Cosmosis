@@ -25,21 +25,21 @@ const Navbar: React.FC = () => {
   return (
     <nav 
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-        scrolled ? 'py-4' : 'py-6'
+        scrolled ? 'pt-8 pb-3 md:py-4' : 'pt-12 pb-4 md:py-6'
       }`}
     >
-      <div className={`mx-auto px-6 lg:px-12 transition-all duration-500 ${
+      <div className={`mx-auto px-4 md:px-6 lg:px-12 transition-all duration-500 ${
         scrolled ? 'max-w-7xl' : 'max-w-full'
       }`}>
-        <div className={`relative flex items-center justify-between px-6 py-4 rounded-full transition-all duration-500 ${
+        <div className={`relative flex items-center justify-between px-5 py-3 md:px-6 md:py-4 rounded-full transition-all duration-500 ${
           scrolled ? 'bg-zinc-900/90 backdrop-blur-md border border-white/10' : 'bg-transparent'
         }`}>
           
           {/* Logo */}
           <div className="flex-shrink-0 z-20">
             <NavLink to="/" className="block group">
-              {/* Reduced size by approx 20% */}
-              <Logo className="h-6 md:h-8 transition-transform duration-300 group-hover:scale-105" />
+              {/* Reduced size on mobile (h-5) to fit better with dynamic island spacing, kept desktop h-8 */}
+              <Logo className="h-5 md:h-8 transition-transform duration-300 group-hover:scale-105" />
             </NavLink>
           </div>
 
@@ -68,7 +68,7 @@ const Navbar: React.FC = () => {
           <div className="md:hidden z-20">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white p-2 hover:text-neon transition-colors"
+              className="text-white p-1 hover:text-neon transition-colors"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
