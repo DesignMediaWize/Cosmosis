@@ -39,14 +39,16 @@ const Footer: React.FC = () => {
 
         </div>
         
-        <div className="flex flex-col md:flex-row justify-between items-center border-t border-zinc-900 pt-8 text-zinc-600 text-xs font-mono uppercase relative">
+        <div className="flex flex-col md:flex-row justify-between items-center border-t border-zinc-900 pt-8 text-zinc-600 text-xs font-mono uppercase">
           <p>&copy; {new Date().getFullYear()} Cosmosis. All rights reserved.</p>
-          <p className="mt-2 md:mt-0">Stockholm / Earth</p>
           
-          {/* Admin Link - Hidden/Discrete */}
-          <Link to="/admin" className="absolute bottom-0 right-0 opacity-10 hover:opacity-100 transition-opacity p-2">
-            Admin
-          </Link>
+          <div className="flex items-center gap-6 mt-2 md:mt-0">
+            <p>Stockholm / Earth</p>
+            {/* Discrete Admin Link - Made more visible */}
+            <Link to="/admin" className="text-zinc-500 hover:text-neon transition-colors cursor-pointer ml-4" title="Mission Control">
+              [Admin]
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
