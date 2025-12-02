@@ -1,11 +1,13 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowUpRight, Plus, Sparkles } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Plus } from 'lucide-react';
 import Button from '../components/ui/Button';
-import { PROJECTS, SERVICES } from '../constants';
+import { SERVICES } from '../constants';
+import { useProjects } from '../hooks/useProjects';
 
 const Home: React.FC = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const { projects } = useProjects(); // Dynamic Data
 
   // Handle mouse movement for parallax effect
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -13,8 +15,6 @@ const Home: React.FC = () => {
     const centerX = window.innerWidth / 2;
     const centerY = window.innerHeight / 2;
     
-    // Calculate distance from center
-    // Tuned divisor to 60 for visible but smooth parallax movement
     setMousePos({
       x: (clientX - centerX) / 60, 
       y: (clientY - centerY) / 60
@@ -27,14 +27,13 @@ const Home: React.FC = () => {
       id: i,
       top: `${Math.random() * 100}%`,
       left: `${Math.random() * 100}%`,
-      size: `${Math.random() * 2 + 1}px`, // 1px to 3px
+      size: `${Math.random() * 2 + 1}px`,
       opacity: Math.random() * 0.5 + 0.2,
-      animationDuration: `${Math.random() * 10 + 10}s`, // 10s to 20s
+      animationDuration: `${Math.random() * 10 + 10}s`,
       animationDelay: `${Math.random() * 5}s`,
     }));
   }, []);
 
-  // Generate random floating debris (tiny crosses/specs)
   const debris = useMemo(() => {
     return Array.from({ length: 12 }).map((_, i) => ({
       id: i,
@@ -42,20 +41,18 @@ const Home: React.FC = () => {
       left: `${Math.random() * 100}%`,
       rotation: `${Math.random() * 360}deg`,
       scale: Math.random() * 0.5 + 0.5,
-      animationDuration: `${Math.random() * 20 + 20}s`, // 20s to 40s
+      animationDuration: `${Math.random() * 20 + 20}s`,
       animationDelay: `${Math.random() * 10}s`,
     }));
   }, []);
 
-  // Generate shooting stars
-  // Reduced count to 2 for sparsity
   const shootingStars = useMemo(() => {
     return Array.from({ length: 2 }).map((_, i) => ({
       id: i,
-      top: `${Math.random() * 40}%`, // Start from upper half
-      left: `${Math.random() * 80 + 10}%`, // Avoid edges
-      delay: `${Math.random() * 5}s`, // Staggered start
-      duration: `${Math.random() * 5 + 8}s` // 8-13 seconds
+      top: `${Math.random() * 40}%`,
+      left: `${Math.random() * 80 + 10}%`,
+      delay: `${Math.random() * 5}s`,
+      duration: `${Math.random() * 5 + 8}s`
     }));
   }, []);
 
@@ -69,25 +66,17 @@ const Home: React.FC = () => {
         className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden pt-20"
         onMouseMove={handleMouseMove}
       >
-        
-        {/* Animated Background Mesh & Cosmos */}
         <div className="absolute inset-0 z-0">
-           {/* Deep Space Base */}
            <div className="absolute inset-0 bg-cosmic-950 opacity-80"></div>
 
-           {/* Parallax Layer: Background Glows (Move inverse to mouse) */}
            <div 
              className="absolute inset-0 transition-transform duration-500 ease-out will-change-transform"
              style={{ transform: `translate(${-mousePos.x}px, ${-mousePos.y}px)` }}
            >
-              {/* Primary Gold Glow */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-neon/10 rounded-full blur-[120px] animate-pulse-slow"></div>
-              
-              {/* Secondary Grey/Purple Glow */}
               <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-neon-secondary/20 rounded-full blur-[100px] animate-float"></div>
            </div>
 
-           {/* Cosmos Layer: Stars (Move slightly with mouse) */}
            <div 
              className="absolute inset-0 overflow-hidden pointer-events-none transition-transform duration-300 ease-out will-change-transform"
              style={{ transform: `translate(${mousePos.x * 0.5}px, ${mousePos.y * 0.5}px)` }}
@@ -102,10 +91,9 @@ const Home: React.FC = () => {
                    width: star.size,
                    height: star.size,
                    opacity: star.opacity,
-                   animationDuration: '4s', // Consistent pulse
+                   animationDuration: '4s',
                  }}
                >
-                 {/* Inner wrapper for floating movement */}
                  <div 
                    className="w-full h-full animate-float"
                    style={{ 
@@ -116,7 +104,6 @@ const Home: React.FC = () => {
                </div>
              ))}
 
-             {/* Shooting Stars Layer */}
              {shootingStars.map((star) => (
                <div
                  key={`shooting-star-${star.id}`}
@@ -130,7 +117,6 @@ const Home: React.FC = () => {
                />
              ))}
 
-             {/* Cosmos Layer: Debris/Tech Elements */}
              {debris.map((item) => (
                <div
                  key={`debris-${item.id}`}
@@ -149,7 +135,6 @@ const Home: React.FC = () => {
            </div>
         </div>
 
-        {/* Content Layer with Parallax (Moves opposite to background for depth) */}
         <div 
           className="relative z-10 text-center max-w-7xl mx-auto flex flex-col items-center transition-transform duration-200 ease-out will-change-transform"
           style={{ transform: `translate(${mousePos.x}px, ${mousePos.y}px)` }}
@@ -178,17 +163,15 @@ const Home: React.FC = () => {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-8 hidden md:flex items-center gap-4 text-xs font-display uppercase tracking-widest text-zinc-500">
           <div className="h-px w-12 bg-zinc-700"></div>
           Scroll to explore
         </div>
       </section>
 
-      {/* MARQUEE SECTION */}
+      {/* MARQUEE */}
       <section className="py-12 bg-black border-y border-zinc-900 overflow-hidden relative select-none">
         <div className="flex w-full">
-          {/* Track 1 */}
           <div className="flex animate-marquee whitespace-nowrap flex-shrink-0 items-center">
             {MARQUEE_ITEMS.map((item, index) => (
               <React.Fragment key={`t1-${index}`}>
@@ -199,7 +182,6 @@ const Home: React.FC = () => {
               </React.Fragment>
             ))}
           </div>
-          {/* Track 2 */}
           <div className="flex animate-marquee whitespace-nowrap flex-shrink-0 items-center">
             {MARQUEE_ITEMS.map((item, index) => (
               <React.Fragment key={`t2-${index}`}>
@@ -213,7 +195,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* MANIFESTO / ABOUT TEASER */}
+      {/* MANIFESTO */}
       <section className="py-32 relative bg-cosmic-950">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -236,7 +218,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* SERVICES LIST */}
+      {/* SERVICES */}
       <section className="py-20 border-t border-white/10 bg-zinc-900/30">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex justify-between items-end mb-12">
@@ -263,13 +245,13 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* SELECTED WORKS */}
+      {/* SELECTED WORKS - DYNAMIC */}
       <section id="work" className="py-32">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="font-display font-bold text-5xl md:text-8xl text-white mb-20 opacity-20">WORK</h2>
           
           <div className="space-y-24">
-            {PROJECTS.map((project, index) => (
+            {projects.map((project, index) => (
               <div key={project.id} className={`flex flex-col md:flex-row gap-12 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''} items-center group`}>
                 <div className="w-full md:w-3/5 overflow-hidden">
                    <Link to={`/work/${project.id}`}>
@@ -299,10 +281,8 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* HYPERSPACE CTA - REPLACED */}
+      {/* CTA */}
       <section className="relative min-h-[60vh] flex items-center justify-center bg-black overflow-hidden border-t border-zinc-900 group">
-        
-        {/* Animated Grid Background */}
         <div className="absolute inset-0 opacity-20 pointer-events-none">
           <div 
             className="absolute inset-0 bg-[linear-gradient(to_right,#84817C_1px,transparent_1px),linear-gradient(to_bottom,#84817C_1px,transparent_1px)] bg-[size:4rem_4rem]"
@@ -314,7 +294,6 @@ const Home: React.FC = () => {
           ></div>
         </div>
 
-        {/* Glowing Core */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-neon/5 rounded-full blur-[100px] group-hover:bg-neon/10 transition-colors duration-1000"></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] bg-neon/20 rounded-full blur-[50px] animate-pulse-slow"></div>
 
@@ -343,7 +322,6 @@ const Home: React.FC = () => {
           </Link>
         </div>
 
-        {/* Decorative Data Lines */}
         <div className="absolute bottom-10 left-10 hidden md:block">
            <div className="flex flex-col gap-1">
              <div className="h-px w-24 bg-zinc-800"></div>

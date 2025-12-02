@@ -1,22 +1,23 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { PROJECTS } from '../constants';
-import { ArrowLeft, ChevronRight, ExternalLink } from 'lucide-react';
+import { ArrowLeft, ChevronRight } from 'lucide-react';
 import Button from '../components/ui/Button';
+import { useProjects } from '../hooks/useProjects';
 
 const ProjectDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const project = PROJECTS.find(p => p.id === id);
+  const { projects } = useProjects();
+  const project = projects.find(p => p.id === id);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [id]);
+  }, [id, projects]); // Re-run when projects load
 
   if (!project) {
     return (
       <div className="min-h-screen pt-48 px-6 flex flex-col items-center justify-center">
         <h1 className="text-4xl text-white font-display mb-4">Project Not Found</h1>
-        <p className="text-zinc-400 mb-8">This file has been redacted or does not exist.</p>
+        <p className="text-zinc-400 mb-8">This file has been redacted or does not exist in the database.</p>
         <Link to="/">
           <Button variant="outline">Return to Base</Button>
         </Link>

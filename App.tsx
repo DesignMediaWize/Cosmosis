@@ -11,6 +11,12 @@ import Contact from './pages/Contact';
 import ScrollToTop from './components/ScrollToTop';
 import Visor from './components/Visor';
 
+// Admin Imports
+import Login from './pages/admin/Login';
+import Dashboard from './pages/admin/Dashboard';
+import ProjectEditor from './pages/admin/ProjectEditor';
+import ProtectedRoute from './components/ProtectedRoute';
+
 function App() {
   return (
     <Router>
@@ -18,20 +24,42 @@ function App() {
       <div className="flex flex-col min-h-screen bg-cosmic-950 text-white font-sans selection:bg-neon selection:text-black">
         <div className="bg-noise"></div>
         
-        {/* Depth of Field Overlay: Blurs content scrolling near/behind navbar */}
-        {/* Adjusted height to h-64, blur to 20px, and mask to 40% to ensure full blur behind navbar */}
+        {/* Depth of Field Overlay */}
         <div className="fixed top-0 left-0 right-0 h-64 z-[90] pointer-events-none backdrop-blur-[20px] [mask-image:linear-gradient(to_bottom,black_40%,transparent)]"></div>
         
         <Visor />
+        
+        {/* We keep Navbar on all pages, but typically Admin might not want it. 
+            For now, simpler to keep it layout consistent. */}
         <Navbar />
+        
         <main className="flex-grow z-10">
           <Routes>
+            {/* Public Routes */}
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/services/:id" element={<ServiceDetail />} />
             <Route path="/work/:id" element={<ProjectDetail />} />
             <Route path="/contact" element={<Contact />} />
+
+            {/* Admin Routes */}
+            <Route path="/admin" element={<Login />} />
+            <Route path="/admin/dashboard" element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            } />
+            <Route path="/admin/project/new" element={
+              <ProtectedRoute>
+                <ProjectEditor />
+              </ProtectedRoute>
+            } />
+            <Route path="/admin/project/edit/:id" element={
+              <ProtectedRoute>
+                <ProjectEditor />
+              </ProtectedRoute>
+            } />
           </Routes>
         </main>
         <Footer />
