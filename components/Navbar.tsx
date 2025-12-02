@@ -25,21 +25,21 @@ const Navbar: React.FC = () => {
   return (
     <nav 
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-        scrolled ? 'pt-8 pb-3 md:py-4' : 'pt-12 pb-4 md:py-6'
+        scrolled ? 'pt-8 pb-3 md:py-4' : 'pt-16 pb-4 md:py-6' // Increased mobile pt from 12 to 16 for Dynamic Island
       }`}
     >
-      <div className={`mx-auto px-4 md:px-6 lg:px-12 transition-all duration-500 ${
+      <div className={`mx-auto px-3 md:px-6 lg:px-12 transition-all duration-500 ${ // Reduced mobile px from 4 to 3
         scrolled ? 'max-w-7xl' : 'max-w-full'
       }`}>
-        <div className={`relative flex items-center justify-between px-5 py-3 md:px-6 md:py-4 rounded-full transition-all duration-500 ${
+        <div className={`relative flex items-center justify-between px-4 py-3 md:px-6 md:py-4 rounded-full transition-all duration-500 ${ // Reduced mobile inner px from 5 to 4
           scrolled ? 'bg-zinc-900/90 backdrop-blur-md border border-white/10' : 'bg-transparent'
         }`}>
           
           {/* Logo */}
           <div className="flex-shrink-0 z-20">
             <NavLink to="/" className="block group">
-              {/* Reduced size on mobile (h-5) to fit better with dynamic island spacing, kept desktop h-8 */}
-              <Logo className="h-5 md:h-8 transition-transform duration-300 group-hover:scale-105" />
+              {/* Enforced h-5 (20px) on mobile, h-8 (32px) on desktop */}
+              <Logo className="h-5 md:h-8 w-auto transition-transform duration-300 group-hover:scale-105" />
             </NavLink>
           </div>
 
