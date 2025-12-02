@@ -9,7 +9,8 @@ const Services: React.FC = () => {
       
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-20 border-b border-white/20 pb-10">
-          <h1 className="font-display font-bold text-6xl md:text-8xl text-white mb-6">CAPABILITIES</h1>
+          {/* Adjusted text size for mobile to prevent cropping of long word */}
+          <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-8xl text-white mb-6">CAPABILITIES</h1>
           <p className="text-xl text-zinc-400 max-w-2xl">
             We provide a constellation of high-fidelity design and strategy services.
             Precision engineered for growth.
@@ -44,7 +45,7 @@ const Services: React.FC = () => {
                     ))}
                   </div>
 
-                  <div className="opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                  <div className="opacity-100 translate-y-0 md:opacity-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0 transform transition-all duration-500">
                     <Link to={`/services/${service.id}`}>
                       <button className="flex items-center text-neon font-bold uppercase tracking-widest text-sm hover:underline">
                         Explore Service <ArrowRight className="ml-2 w-4 h-4" />
