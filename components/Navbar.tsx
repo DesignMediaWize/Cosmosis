@@ -25,20 +25,19 @@ const Navbar: React.FC = () => {
   return (
     <nav 
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-        scrolled ? 'pt-8 pb-3 md:py-4' : 'pt-16 pb-4 md:py-6' // Increased mobile pt from 12 to 16 for Dynamic Island
+        scrolled ? 'pt-8 pb-3 md:py-4' : 'pt-16 pb-4 md:py-6'
       }`}
     >
-      <div className={`mx-auto px-3 md:px-6 lg:px-12 transition-all duration-500 ${ // Reduced mobile px from 4 to 3
+      <div className={`mx-auto px-3 md:px-6 lg:px-12 transition-all duration-500 ${
         scrolled ? 'max-w-7xl' : 'max-w-full'
       }`}>
-        <div className={`relative flex items-center justify-between px-4 py-3 md:px-6 md:py-4 rounded-full transition-all duration-500 ${ // Reduced mobile inner px from 5 to 4
+        <div className={`relative flex items-center justify-between px-4 py-3 md:px-6 md:py-4 rounded-full transition-all duration-500 ${
           scrolled ? 'bg-zinc-900/90 backdrop-blur-md border border-white/10' : 'bg-transparent'
         }`}>
           
           {/* Logo */}
           <div className="flex-shrink-0 z-20">
             <NavLink to="/" className="block group">
-              {/* Enforced h-5 (20px) on mobile, h-8 (32px) on desktop */}
               <Logo className="h-5 md:h-8 w-auto transition-transform duration-300 group-hover:scale-105" />
             </NavLink>
           </div>
@@ -76,11 +75,18 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
-      <div className={`fixed inset-0 z-10 flex items-center justify-center transition-all duration-500 md:hidden ${isOpen ? 'opacity-100 pointer-events-auto visible' : 'opacity-0 pointer-events-none invisible'}`}>
+      {/* Mobile Menu Overlay - Staggered Animation Wrapper */}
+      {/* Wrapper handles visibility only, ensuring it stays visible while inner elements fade out */}
+      <div 
+        className={`fixed inset-0 z-10 flex items-center justify-center md:hidden transition-[visibility] duration-500 ${
+          isOpen ? 'visible' : 'invisible delay-300'
+        }`}
+      >
         
-        {/* Dynamic Background */}
-        <div className="absolute inset-0 bg-cosmic-950/98 backdrop-blur-2xl">
+        {/* Dynamic Background - Fades In Fast, Fades Out Slow */}
+        <div className={`absolute inset-0 bg-cosmic-950 backdrop-blur-3xl transition-opacity duration-300 ease-out ${
+           isOpen ? 'opacity-100' : 'opacity-0'
+        }`}>
            <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-64 h-64 bg-neon/5 rounded-full blur-[80px] animate-pulse-slow"></div>
            <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-indigo-900/10 rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
            
@@ -88,8 +94,10 @@ const Navbar: React.FC = () => {
            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_100%)] pointer-events-none"></div>
         </div>
 
-        {/* Menu Content */}
-        <div className="relative z-10 flex flex-col items-center space-y-8">
+        {/* Menu Content - Delays In, Fades Out Fast */}
+        <div className={`relative z-10 flex flex-col items-center space-y-8 transition-all duration-500 ease-out ${
+           isOpen ? 'opacity-100 translate-y-0 delay-200' : 'opacity-0 translate-y-4'
+        }`}>
           {NAV_ITEMS.map((item) => (
             <NavLink
               key={item.path}
