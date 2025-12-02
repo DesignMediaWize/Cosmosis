@@ -77,16 +77,28 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Mobile Menu Overlay */}
-      <div className={`fixed inset-0 bg-cosmic-950/95 backdrop-blur-xl z-10 flex items-center justify-center transition-opacity duration-300 md:hidden ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-        <div className="flex flex-col items-center space-y-8">
+      <div className={`fixed inset-0 z-10 flex items-center justify-center transition-all duration-500 md:hidden ${isOpen ? 'opacity-100 pointer-events-auto visible' : 'opacity-0 pointer-events-none invisible'}`}>
+        
+        {/* Dynamic Background */}
+        <div className="absolute inset-0 bg-cosmic-950/98 backdrop-blur-2xl">
+           <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-64 h-64 bg-neon/5 rounded-full blur-[80px] animate-pulse-slow"></div>
+           <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-indigo-900/10 rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
+           
+           {/* Grid Pattern Overlay */}
+           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_100%)] pointer-events-none"></div>
+        </div>
+
+        {/* Menu Content */}
+        <div className="relative z-10 flex flex-col items-center space-y-8">
           {NAV_ITEMS.map((item) => (
             <NavLink
               key={item.path}
               to={item.path}
+              onClick={() => setIsOpen(false)}
               className={({ isActive }) =>
-                `font-display font-bold text-4xl uppercase tracking-tighter ${
+                `font-display font-bold text-xl uppercase tracking-[0.25em] transition-all duration-300 ${
                   isActive
-                    ? 'text-neon'
+                    ? 'text-neon scale-110 drop-shadow-[0_0_10px_rgba(193,153,119,0.3)]'
                     : 'text-zinc-500 hover:text-white'
                 }`
               }
